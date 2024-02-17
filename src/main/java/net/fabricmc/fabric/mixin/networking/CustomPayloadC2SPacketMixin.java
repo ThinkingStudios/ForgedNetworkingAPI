@@ -38,7 +38,7 @@ public class CustomPayloadC2SPacketMixin {
 	private static int MAX_PAYLOAD_SIZE;
 
 	@Inject(
-			method = "readPayload",
+			method = "readPayload*",
 			at = @At(value = "INVOKE", target = "Lnet/minecraft/network/packet/c2s/common/CustomPayloadC2SPacket;readUnknownPayload(Lnet/minecraft/util/Identifier;Lnet/minecraft/network/PacketByteBuf;)Lnet/minecraft/network/packet/UnknownCustomPayload;"),
 			cancellable = true
 	)
