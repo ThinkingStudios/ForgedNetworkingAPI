@@ -11,54 +11,36 @@ group = project.maven_group
 
 loom {
     accessWidenerPath = file("src/main/resources/forged-networking-api.accesswidener")
-
-    forge {
-        convertAccessWideners = true
-        extraAccessWideners.add loom.accessWidenerPath.get().asFile.name
-
-        mixinConfigs = [
-                "forged-networking-api.mixins.json"
-        ]
-    }
 }
 
 repositories {
-
+    maven { url "https://maven.neoforged.net/releases/" }
 }
 
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-    forge "net.minecraftforge:forge:${project.forge_version}"
-
-    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.3.5"))
-    implementation(include("io.github.llamalad7:mixinextras-forge:0.3.5"))
+    neoForge "net.neoforged:neoforge:${project.neoforge_version}"
 }
 
 processResources {
-    // define properties that can be used during resource processing
     inputs.property "version", project.version
 
-    // this will replace the property "${version}" in your mods.toml
-    // with the version you've defined in your gradle.properties
     filesMatching("META-INF/mods.toml") {
         expand "version": project.version
     }
 }
 
 tasks.withType(JavaCompile) {
-    // ensure that the encoding is set to UTF-8, no matter what the system default is
-    // this fixes some edge cases with special characters not displaying correctly
-    // see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
-    // If Javadoc is generated, this must be specified in that task too.
     options.encoding = "UTF-8"
     options.release = 17
 }
 
+remapJar {
+    atAccessWideners.add(loom.accessWidenerPath.get().asFile.name)
+}
+
 java {
-    // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
-    // if it is present.
-    // If you remove this line, sources will not be generated.
     withSourcesJar()
 }
 

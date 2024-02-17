@@ -1,6 +1,6 @@
 modLoader = "javafml"
-loaderVersion = "[44,)"
-license = "All rights reserved"
+loaderVersion = "[1,)"
+license = "Apache-2.0"
 
 [[mods]]
 modId = "forgednetworking"
@@ -16,16 +16,19 @@ Fabric API's Networking forge port.
 Low-level, vanilla protocol oriented networking hooks.
 '''
 
+[[mixins]]
+config = "forged-networking-api.mixins.json"
+
 [[dependencies.forgednetworking]]
-modId = "forge"
-mandatory = true
-versionRange = "[44,)"
+modId = "neoforge"
+type = "required"
+versionRange = "[20,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.forgednetworking]]
 modId = "minecraft"
-mandatory = true
+type = "required"
 versionRange = "[1.20.3,1.20.4)"
 ordering = "NONE"
 side = "BOTH"
