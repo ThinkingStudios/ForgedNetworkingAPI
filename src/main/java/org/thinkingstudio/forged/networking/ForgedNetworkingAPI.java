@@ -3,10 +3,10 @@ package org.thinkingstudio.forged.networking;
 import net.fabricmc.fabric.impl.networking.CommonPacketsImpl;
 import net.fabricmc.fabric.impl.networking.client.ClientNetworkingImpl;
 
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.loading.FMLLoader;
+import net.neoforged.neoforge.common.NeoForge;
 
-import net.minecraftforge.fml.loading.FMLLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,7 +23,7 @@ public class ForgedNetworkingAPI {
         }
 
         if (isDevelopmentEnvironment()) {
-            MinecraftForge.EVENT_BUS.register(ForgeEventsHandler.class);
+            NeoForge.EVENT_BUS.register(ForgeEventsHandler.class);
         }
     }
 
