@@ -11,7 +11,7 @@ logoFile="icon.png" #optional
 credits="FabricMC" #optional
 authors="ThinkingStudio" #optional
 description = '''
-Fabric API's Networking forge port
+Fabric API's Networking forge port.
 
 Low-level, vanilla protocol oriented networking hooks.
 '''
