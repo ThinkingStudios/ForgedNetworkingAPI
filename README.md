@@ -1,3 +1,3 @@
-# ArchitecturyTemplateMod-Forge
+# Forged Networking API
 
-These Templates are [Architectury Templates](https://github.com/architectury/architectury-templates) Fork (Only Forge).
+Fabric Networking API Forge/NeoForge port
