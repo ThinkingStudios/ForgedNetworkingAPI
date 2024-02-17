@@ -17,17 +17,16 @@
 package net.fabricmc.fabric.impl.networking;
 
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import net.minecraft.util.Identifier;
 
 import net.fabricmc.fabric.impl.networking.payload.TypedPayload;
 import net.fabricmc.fabric.impl.networking.payload.UntypedPayload;
+
 import org.thinkingstudio.forged.networking.ForgedNetworkingAPI;
 
 public final class NetworkingImpl {
-	public static final String MOD_ID = "fabric-networking-api-v1";
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+	public static final Logger LOGGER = ForgedNetworkingAPI.LOGGER;
 
 	/**
 	 * Force {@link TypedPayload} to be serialized into {@link UntypedPayload}, mimicking remote connection.

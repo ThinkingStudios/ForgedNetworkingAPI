@@ -26,7 +26,8 @@ import java.util.PriorityQueue;
 
 import com.google.common.annotations.VisibleForTesting;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import org.thinkingstudio.forged.networking.ForgedNetworkingAPI;
 
 /**
  * Contains a topological sort implementation, with tie breaking using a {@link Comparator}.
@@ -42,7 +43,7 @@ import org.slf4j.LoggerFactory;
  * </ol>
  */
 public class NodeSorting {
-	private static final Logger LOGGER = LoggerFactory.getLogger("fabric-api-base");
+	private static final Logger LOGGER = ForgedNetworkingAPI.LOGGER;
 
 	@VisibleForTesting
 	public static boolean ENABLE_CYCLE_WARNING = true;
