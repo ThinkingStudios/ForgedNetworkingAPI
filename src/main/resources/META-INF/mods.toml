@@ -19,6 +19,9 @@ Low-level, vanilla protocol oriented networking hooks.
 [[mixins]]
 config = "forged-networking-api.mixins.json"
 
+[[accessTransformers]]
+file = "META-INF/accesstransformer.cfg"
+
 [[dependencies.forged_networking]]
 modId = "neoforge"
 type = "required"

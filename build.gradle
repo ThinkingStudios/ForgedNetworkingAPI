@@ -10,10 +10,8 @@ version = project.mod_version
 group = project.maven_group
 
 loom {
-    accessWidenerPath = file("src/main/resources/forged-networking-api.accesswidener")
-
     neoForge {
-        enableTransitiveAccessWideners = true
+        accessTransformers = files("src/main/resources/META-INF/accesstransformer.cfg")
     }
 }
 
@@ -38,11 +36,6 @@ processResources {
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
     options.release = 17
-}
-
-remapJar {
-    injectAccessWidener.set(true)
-    atAccessWideners.add("forged-networking-api.accesswidener")
 }
 
 java {
