@@ -1,4 +1,5 @@
 {
+  "accessWidener": "forged-networking-api.accesswidener",
   "injected_interfaces": {
     "net/minecraft/class_8610": [ "net/fabricmc/fabric/api/networking/v1/FabricServerConfigurationNetworkHandler" ]
   }
