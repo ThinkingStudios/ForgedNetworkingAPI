@@ -42,7 +42,7 @@ tasks.withType(JavaCompile) {
 
 remapJar {
     injectAccessWidener.set(true)
-    atAccessWideners.add(loom.accessWidenerPath.get().asFile.name)
+    atAccessWideners.add("forged-networking-api.accesswidener")
 }
 
 java {
