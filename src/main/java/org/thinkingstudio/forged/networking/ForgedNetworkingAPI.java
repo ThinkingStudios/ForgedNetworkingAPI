@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
 
 @Mod(ForgedNetworkingAPI.MODID)
 public class ForgedNetworkingAPI {
-    public static final String MODID = "forgednetworking";
+    public static final String MODID = "forged_networking";
     public static final String MODNAME = "ForgedNetworkingAPI";
     public static final Logger LOGGER = LoggerFactory.getLogger(MODNAME);
 

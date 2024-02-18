@@ -3,7 +3,7 @@ loaderVersion = "[1,)"
 license = "Apache-2.0"
 
 [[mods]]
-modId = "forgednetworking"
+modId = "forged_networking"
 version = "${version}"
 displayName = "ForgedNetworkingAPI"
 displayURL="https://github.com/ThinkingStudios/ForgedNetworkingAPI" #optional
@@ -19,14 +19,14 @@ Low-level, vanilla protocol oriented networking hooks.
 [[mixins]]
 config = "forged-networking-api.mixins.json"
 
-[[dependencies.forgednetworking]]
+[[dependencies.forged_networking]]
 modId = "neoforge"
 type = "required"
 versionRange = "[20,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.forgednetworking]]
+[[dependencies.forged_networking]]
 modId = "minecraft"
 type = "required"
 versionRange = "[1.20.3,)"
