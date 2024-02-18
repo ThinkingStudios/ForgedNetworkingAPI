@@ -5,6 +5,7 @@ import net.fabricmc.fabric.impl.networking.client.ClientNetworkingImpl;
 
 import net.minecraft.SharedConstants;
 import net.minecraft.server.command.DebugConfigCommand;
+
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.loading.FMLLoader;
@@ -26,7 +27,7 @@ public class ForgedNetworkingAPI {
             ClientNetworkingImpl.clientInit();
         }
 
-        if (isDevelopmentEnvironment()) {
+        if (ForgedNetworkingAPI.isDevelopmentEnvironment()) {
             NeoForge.EVENT_BUS.addListener(EventPriority.HIGHEST, RegisterCommandsEvent.class, event -> {
                 if (SharedConstants.isDevelopment) {
                     // Command is registered when isDevelopment is set.
