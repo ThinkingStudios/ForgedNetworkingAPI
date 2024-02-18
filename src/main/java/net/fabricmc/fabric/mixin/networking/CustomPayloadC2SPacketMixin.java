@@ -16,6 +16,8 @@
 
 package net.fabricmc.fabric.mixin.networking;
 
+import io.netty.channel.ChannelHandlerContext;
+import net.minecraft.network.NetworkState;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -38,11 +40,11 @@ public class CustomPayloadC2SPacketMixin {
 	private static int MAX_PAYLOAD_SIZE;
 
 	@Inject(
-			method = "readPayload*",
+			method = "readPayload(Lnet/minecraft/util/Identifier;Lnet/minecraft/network/PacketByteBuf;Lio/netty/channel/ChannelHandlerContext;Lnet/minecraft/network/NetworkState;)Lnet/minecraft/network/packet/CustomPayload;",
 			at = @At(value = "INVOKE", target = "Lnet/minecraft/network/packet/c2s/common/CustomPayloadC2SPacket;readUnknownPayload(Lnet/minecraft/util/Identifier;Lnet/minecraft/network/PacketByteBuf;)Lnet/minecraft/network/packet/UnknownCustomPayload;"),
 			cancellable = true
 	)
-	private static void readPayload(Identifier id, PacketByteBuf buf, CallbackInfoReturnable<CustomPayload> cir) {
+	private static void readPayload(Identifier id, PacketByteBuf buf, ChannelHandlerContext context, NetworkState protocol, CallbackInfoReturnable<CustomPayload> cir) {
 		cir.setReturnValue(PayloadHelper.readCustom(id, buf, MAX_PAYLOAD_SIZE, NetworkingImpl.FACTORY_RETAIN.get()));
 	}
 }
